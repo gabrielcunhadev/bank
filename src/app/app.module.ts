@@ -11,6 +11,13 @@ import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes.component';
 import { HomeLogadaComponent } from './home-logada/home-logada.component';
+import { AuthGuard } from '../auth.guard';
+import { AuthService } from '../auth.service';
+import { CadastroConcluidoComponent } from './cadastro-concluido/cadastro-concluido.component';
+import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
+import { LoginComponent } from './login/login.component';
+import { ModalNotCadastroComponent } from './modal-not-cadastro/modal-not-cadastro.component';
+import { SingletonRouterService } from './singleton-router.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,11 @@ import { HomeLogadaComponent } from './home-logada/home-logada.component';
     ContentComponent,
     FooterComponent,
     CadastroClientesComponent,
-    HomeLogadaComponent    
+    HomeLogadaComponent,
+    CadastroConcluidoComponent,
+    AcessoNegadoComponent,
+    LoginComponent,
+    ModalNotCadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +40,11 @@ import { HomeLogadaComponent } from './home-logada/home-logada.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    SingletonRouterService,
+    AuthService,
+    AuthGuard 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
